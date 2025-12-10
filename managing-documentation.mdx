@@ -1,0 +1,118 @@
+---
+title: Managing Your Documentation
+description: Learn best practices for creating, editing, and maintaining high-quality documentation within the platform.
+---
+
+## Overview
+
+Mundo Digital provides powerful tools to create, edit, and maintain your documentation. You organize content into pages, track changes with version history, and leverage search and export features for efficient management. Follow these best practices to keep your docs clear, up-to-date, and accessible.
+
+<Columns cols={3}>
+  <Card title="Create Pages" icon="file-plus" href="#">
+    Build new documentation pages quickly with intuitive editors.
+  </Card>
+  <Card title="Track Versions" icon="git-branch" href="#">
+    Monitor changes and revert to previous versions easily.
+  </Card>
+  <Card title="Search & Export" icon="search" href="#">
+    Find content fast and export to various formats.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Start with a clear structure: Use H2 headings for sections and components like `<Steps>` for guides to enhance readability.
+</Callout>
+
+## Creating and Editing Pages
+
+You create new pages from the dashboard or sidebar. Choose between visual editor for quick edits or MDX mode for advanced formatting.
+
+<Steps>
+  <Step title="Create a New Page" icon="plus">
+    Navigate to your workspace. Click **New Page** and select a template.
+  </Step>
+  <Step title="Edit Content" icon="edit-3">
+    Use the toolbar for basic formatting. Switch to MDX for components.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Preview changes, then click **Publish** to make live.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Visual Editor" icon="edit">
+    Drag-and-drop blocks for images, tables, and embeds. Ideal for non-technical users.
+  </Tab>
+  <Tab title="MDX Editor" icon="code">
+    Write semantic MDX with components. Supports syntax highlighting and live preview.
+
+    ```mdx
+    ## Quick Start
+
+    <Callout kind="info">
+      Welcome to your docs!
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+## Versioning and History Tracking
+
+Every edit creates a version snapshot. You view, compare, and restore previous versions from the page settings.
+
+<Expandable title="Advanced Version Management" default-open="false">
+
+  Access history via the page menu. Compare diffs side-by-side.
+
+  <CodeGroup tabs="CLI,API">
+    ```bash
+    md-docs version list --page "managing-documentation"
+    md-docs version restore 5f3a2b1
+    ```
+    ```javascript
+    await docs.versions.list({ pageId: "page-123" });
+    await docs.versions.restore("version-abc456");
+    ```
+  </CodeGroup>
+
+</Expandable>
+
+| Action | Description | Shortcut |
+|--------|-------------|----------|
+| View History | See all versions | `Cmd/Ctrl + H` |
+| Compare Versions | Diff two snapshots | Select versions |
+| Restore Version | Revert to past state | Click **Restore** |
+
+<Callout kind="alert">
+  Enable auto-save to prevent data loss during long editing sessions.
+</Callout>
+
+## Search and Export Features
+
+Search across all pages with full-text indexing. Export single pages or entire sites to PDF, HTML, or Markdown.
+
+Use filters for titles, tags, or content types.
+
+```javascript
+// Example search query
+const results = await searchDocs({
+  query: "authentication",
+  filters: { type: "guide", tags: ["api"] }
+});
+console.log(results); // Array of matching pages
+```
+
+<Columns cols={2}>
+  <Card title="Export Options" icon="download" horizontal>
+    PDF for printing, HTML for web, Markdown for GitHub.
+
+    Supports custom branding with your logo and colors.
+  </Card>
+  <Card title="Advanced Search" icon="filter" horizontal>
+    Boolean operators: `"exact phrase" AND api OR sdk`.
+
+    Results include snippets and relevance scores.
+  </Card>
+</Columns>
+
+Follow these practices to maintain high-quality documentation that scales with your project. Regularly review versions and use search to ensure consistency.

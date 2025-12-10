@@ -1,0 +1,104 @@
+---
+title: Quick Start Guide
+description: Get up and running with Mundo Digital Documentation in minutes, from account creation to setting up your first project.
+---
+
+## Get Started in Minutes
+
+Mundo Digital Documentation helps you organize and manage project docs efficiently. Follow these steps to create your account, set up a documentation space, and launch your first project. You complete setup in under 5 minutes.
+
+<Callout kind="tip">
+  Use your GitHub account for seamless integration and version control.
+</Callout>
+
+## Create Your Account
+
+Sign up using one of these methods. Choose the option that matches your workflow.
+
+<Tabs>
+  <Tab title="Email" icon="mail">
+    Visit `https://app.mundodigital.com/signup` and enter your email, password, and name. Verify your email to activate.
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Click "Sign up with GitHub" on the login page. Authorize Mundo Digital to access your repositories for easy doc syncing.
+  </Tab>
+  <Tab title="Google" icon="users">
+    Select "Sign up with Google" for one-click access using your Google account.
+  </Tab>
+</Tabs>
+
+## Set Up Your Documentation Space
+
+After logging in, create your first space to group related docs.
+
+<Steps>
+  <Step title="Navigate to Spaces" icon="layout">
+    From the dashboard, click **New Space** in the top-right corner.
+  </Step>
+  <Step title="Configure Space" icon="settings">
+    Enter a name like "My Project Docs", select visibility (`public` or `private`), and add a description.
+  </Step>
+  <Step title="Connect Repository" icon="git-branch">
+    Link your GitHub repo for automatic syncing. Use this command in your repo root:
+    
+    <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm init @mundodigital/docs
+    ```
+    ```bash
+    yarn create @mundodigital/docs
+    ```
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Basic Navigation
+
+Explore the interface with these key sections.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="home" href="/dashboard">
+    View recent projects, analytics, and quick actions.
+  </Card>
+  <Card title="Projects" icon="folder" href="/projects">
+    Manage docs, edit MDX files, and preview changes live.
+  </Card>
+  <Card title="Settings" icon="settings" href="/settings">
+    Customize themes, integrations, and brand colors like `#3B82F6`.
+  </Card>
+</Columns>
+
+## Create Your First Project
+
+Add a new project inside your space.
+
+1. Open your space.
+2. Click **New Project**.
+3. Name it "Quickstart Example" and select MDX template.
+
+Your project starts with this sample frontmatter:
+
+````mdx
+```mdx
+---
+title: My First Doc
+description: Welcome to your project.
+---
+
+## Hello World
+
+Content goes here.
+```
+````
+
+<Callout kind="success">
+  Publish your site with one click. Share the live URL instantly.
+</Callout>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Sync fails?** Check GitHub permissions.
+  - **Build errors?** Verify MDX syntax—no raw `{` or `<` in prose without backticks.
+  - Contact support at `support@mundodigital.com`.
+</Expandable>
+
+Ready for more? Dive into [advanced editing](/editing) or [custom themes](/themes).

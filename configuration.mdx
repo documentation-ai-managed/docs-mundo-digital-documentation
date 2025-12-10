@@ -1,0 +1,139 @@
+---
+title: Platform Configuration
+description: Customize your documentation space with settings for branding, permissions, and integrations.
+---
+
+## Overview
+
+Configure Mundo Digital Documentation to match your brand and team needs. Set custom colors like `#3B82F6` for primary branding, manage user roles for secure access, and connect external tools for seamless workflows. Access these settings from your dashboard under **Settings > Platform**.
+
+<Columns cols={3}>
+  <Card title="Branding" icon="palette" href="#customizing-brand-colors-and-themes">
+    Apply your logo, colors, and themes in minutes.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#user-roles-and-permissions">
+    Control who can edit, view, or administer docs.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#basic-integrations">
+    Connect Slack, GitHub, and more.
+  </Card>
+</Columns>
+
+## Customizing Brand Colors and Themes
+
+Tailor the visual identity of your documentation space. Start by navigating to **Settings > Branding**.
+
+<Callout kind="tip">
+  Use HEX codes like `#3B82F6` for precise color matching. Test changes in preview mode before saving.
+</Callout>
+
+<Steps>
+  <Step title="Access Branding Panel" icon="settings">
+    Click **Settings > Branding** in the sidebar.
+  </Step>
+  <Step title="Update Colors" icon="palette">
+    Enter your primary color, such as `#3B82F6`, and secondary shades.
+  </Step>
+  <Step title="Upload Assets" icon="upload">
+    Add your logo (PNG, max 500KB) and favicon.
+  </Step>
+  <Step title="Apply Theme" icon="save">
+    Select **Light**, **Dark**, or **Auto** mode and save.
+  </Step>
+</Steps>
+
+Configure via environment variables or JSON for advanced setups:
+
+<CodeGroup tabs="JSON,Env">
+  ```json
+  {
+    "brandColor": "#3B82F6",
+    "secondaryColor": "#1D4ED8",
+    "logoUrl": "https://your-domain.com/logo.png",
+    "theme": "auto"
+  }
+  ```
+  ```bash
+  BRAND_COLOR=#3B82F6
+  SECONDARY_COLOR=#1D4ED8
+  LOGO_URL=https://your-domain.com/logo.png
+  THEME=auto
+  ```
+</CodeGroup>
+
+## User Roles and Permissions
+
+Define roles to ensure secure collaboration. Assign permissions at the space or document level.
+
+| Role       | View | Edit | Administer | Invite Users |
+|------------|------|------|------------|--------------|
+| Viewer     | ✅   | ❌   | ❌         | ❌           |
+| Editor     | ✅   | ✅   | ❌         | ❌           |
+| Admin      | ✅   | ✅   | ✅         | ✅           |
+| Owner      | ✅   | ✅   | ✅         | ✅           |
+
+<Expandable title="Setting Custom Permissions" default-open="false">
+
+Grant granular access:
+
+1. Go to **Settings > Users & Permissions**.
+2. Select a user or group.
+3. Toggle permissions like `edit:pages` or `delete:spaces`.
+
+Example permission JSON:
+
+```json
+{
+  "userId": "user-123",
+  "permissions": ["view", "edit", "invite"]
+}
+```
+
+</Expandable>
+
+## Basic Integrations
+
+Connect external services to enhance your workflow. Enable integrations from **Settings > Integrations**.
+
+<Tabs>
+  <Tab title="Slack" icon="message-circle">
+    Receive notifications for updates and mentions.
+
+    <Steps>
+      <Step title="Get Webhook URL">
+        Create an incoming webhook in your Slack workspace.
+      </Step>
+      <Step title="Add to Mundo">
+        Paste `https://hooks.slack.com/services/YOUR/WEBHOOK` into the Slack field.
+      </Step>
+    </Steps>
+
+    Test payload:
+
+    ```json
+    {
+      "text": "New doc published: Platform Configuration"
+    }
+    ```
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Sync repos for version-controlled docs.
+
+    <CodeGroup tabs="Personal Access Token,OAuth">
+      ```bash
+      GITHUB_TOKEN=your-github-token-here
+      REPO=your-org/mundo-docs
+      ```
+      ```bash
+      GITHUB_CLIENT_ID=your-client-id
+      GITHUB_CLIENT_SECRET=your-client-secret
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Restart your server after config changes. Review audit logs in **Settings > Activity** for changes.
+</Callout>
+
+Your documentation space now reflects your brand and integrates smoothly with your tools. Explore advanced options like custom domains next.

@@ -1,0 +1,129 @@
+---
+title: Changelog
+description: Track the latest updates, new features, and improvements to Mundo Digital Documentation.
+---
+
+## Overview
+
+Stay current with Mundo Digital Documentation by reviewing our changelog. You receive regular updates that enhance performance, add features, and fix issues to streamline your documentation workflow. Check this page frequently or subscribe to notifications for the newest releases.
+
+<Callout kind="info">
+  Follow our GitHub repository for release announcements and contribute feedback directly.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added custom theme support with your brand color (`#3B82F6` by default)
+- Introduced real-time collaboration for team editing
+- Enabled embeddable search widget for your sites
+
+## Improvements
+
+- Optimized search indexing for `<100ms` query times
+- Enhanced mobile responsiveness across all components
+
+## Bug Fixes
+
+- Resolved expandable sections not closing properly
+- Fixed code block highlighting in dark mode
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["bugfix", "improvement"]}>
+
+## Improvements
+
+- Streamlined Steps component rendering for better performance
+- Updated Lucide icons library to latest version
+
+## Bug Fixes
+
+- Corrected ParamField validation for required attributes
+- Patched Response component tabs switching glitch
+- Fixed Mermaid diagram parsing in nested code blocks
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Full MDX component support including Tabs, Cards, and Columns
+- Integrated ParamField and ResponseField for API docs
+- Added Update component for changelog entries like this one
+
+## Breaking Changes
+
+- Updated attribute syntax to require double quotes for strings
+- Mermaid now requires code block syntax only (no JSX component)
+
+</Update>
+
+## Upgrade to Latest Version
+
+Follow these steps to update your Mundo Digital Documentation site.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Create a backup of your current `docs/` folder.
+
+    ```bash
+    cp -r docs docs-backup
+    ```
+  </Step>
+  <Step title="Update Package" icon="download">
+    Install the latest version using your package manager.
+  </Step>
+  <Step title="Rebuild" icon="refresh-cw">
+    <Tabs>
+      <Tab title="npm" icon="package">
+        ```bash
+        npm run build
+        ```
+      </Tab>
+      <Tab title="yarn" icon="package">
+        ```bash
+        yarn build
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Deploy" icon="upload-cloud">
+    Push changes to your hosting provider.
+  </Step>
+</Steps>
+
+## Feature Highlights
+
+Discover key enhancements across releases.
+
+<Columns cols={3}>
+  <Card title="Custom Themes" icon="palette" href="/docs/themes">
+    Apply your brand colors and styles effortlessly.
+  </Card>
+  <Card title="API Components" icon="code" href="/docs/api">
+    Document endpoints with Request and Response blocks.
+  </Card>
+  <Card title="Collaboration" icon="users" href="/docs/teams">
+    Edit docs in real-time with your team.
+  </Card>
+</Columns>
+
+## Known Issues and Feedback
+
+<Expandable title="Current Known Issues" default-open="false">
+
+- Tabs may flicker on very slow connections (fix in v1.2.1)
+- Custom icons require exact Lucide naming
+
+Report issues on GitHub.
+
+</Expandable>
+
+<Callout kind="tip">
+  Use the `tags` prop in Update components to filter changelogs by type: `feature`, `bugfix`, `improvement`.
+</Callout>
